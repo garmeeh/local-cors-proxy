@@ -1,0 +1,20 @@
+{
+  "name": "local-cors-proxy",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "lcp": "./bin/lcp.js"
+  },
+  "preferGlobal": true,
+  "author": "Gary Meehan",
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "request": "^2.85.0"
+  }
+}
