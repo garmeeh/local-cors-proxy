@@ -14,12 +14,19 @@
     "type": "git",
     "url": "git+https://github.com/garmeeh/local-cors-proxy.git"
   },
-  "keywords": ["cors", "proxy", "simple", "node", "express"],
+  "keywords": [
+    "cors",
+    "proxy",
+    "simple",
+    "node",
+    "express"
+  ],
   "bugs": {
     "url": "https://github.com/garmeeh/local-cors-proxy/issues"
   },
   "homepage": "https://github.com/garmeeh/local-cors-proxy#readme",
   "dependencies": {
+    "chalk": "^2.3.2",
     "command-line-args": "^5.0.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",

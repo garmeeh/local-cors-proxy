@@ -36,10 +36,18 @@ http://localhost:8010/proxy/movies/list
 
 End result will be a request to `https://www.yourdomain.ie/movies/list` without the CORS issues!
 
+Alternatively you can install the package locally and add a script to your project:
+
+```json
+ "scripts": {
+   "proxy": "lcp --proxyUrl https://www.yourdomain.ie"
+ }
+```
+
 ## Options
 
-| Option         | Example              | Default |
-| -------------- | -------------------- | ------: |
-| --proxyUrl     | http://www.google.ie |         |
-| --proxyPartial | foo                  |   proxy |
-| --port         | 8010                 |    8010 |
+| Option         | Example               | Default |
+| -------------- | --------------------- | ------: |
+| --proxyUrl     | https://www.google.ie |         |
+| --proxyPartial | foo                   |   proxy |
+| --port         | 8010                  |    8010 |
