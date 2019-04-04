@@ -1,16 +1,27 @@
 #!/usr/bin/env node
 
-var lcp = require('../lib/index.js');
+require('dotenv').config()
+
 var commandLineArgs = require('command-line-args');
+var lcp = require('../lib/index.js');
 
 var optionDefinitions = [
-  { name: 'port', alias: 'p', type: Number, defaultValue: 8010 },
+  {
+    name: 'port',
+    alias: 'p',
+    type: Number,
+    defaultValue: process.env.LCP_PORT,
+  },
   {
     name: 'proxyPartial',
     type: String,
-    defaultValue: '/proxy'
+    defaultValue: process.env.LCP_PROXY_PARTIAL,
   },
-  { name: 'proxyUrl', type: String }
+  {
+    name: 'proxyUrl',
+    type: String,
+    defaultValue: process.env.LCP_PROXY_URL,
+  }
 ];
 
 try {
@@ -21,4 +32,5 @@ try {
   lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial);
 } catch (error) {
   console.error(error);
+  process.exit(1);
 }

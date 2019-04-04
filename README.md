@@ -28,6 +28,12 @@ Start Proxy:
 lcp --proxyUrl https://www.yourdomain.ie
 ```
 
+Or:
+
+```
+LCP_PROXY_URL=https://www.yourdomain.ie lcp
+```
+
 Then in your client code, new API endpoint:
 
 ```
@@ -44,10 +50,28 @@ Alternatively you can install the package locally and add a script to your proje
  }
 ```
 
-## Options
+Or:
+
+```json
+ "scripts": {
+   "proxy": "LCP_PROXY_URL=https://www.yourdomain.ie lcp"
+ }
+```
+
+## Settings
+
+### Options
 
 | Option         | Example               | Default |
 | -------------- | --------------------- | ------: |
 | --proxyUrl     | https://www.google.ie |         |
 | --proxyPartial | foo                   |   proxy |
 | --port         | 8010                  |    8010 |
+
+### Environment variables
+
+| Option            | Example               | Default |
+| ----------------- | --------------------- | ------: |
+| LCP_PROXY_URL     | https://www.google.ie |         |
+| LCP_PROXY_PARTIAL | foo                   |   proxy |
+| LCP_PORT          | 8010                  |    8010 |
