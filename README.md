@@ -36,6 +36,19 @@ http://localhost:8010/proxy/movies/list
 
 End result will be a request to `https://www.yourdomain.ie/movies/list` without the CORS issues!
 
+If you are proxying a location that requires credentials you'll find that you cannot allow origin * and send credentials.
+To resolve this you can pass the specific origin you want to allow:
+
+```
+lcp --proxyUrl https://www.yourdomain.ie --allowedOrigin http://localhost:3000
+```
+
+Also when dealing with passing credentials, you may need to enable sending the include credentials header.
+```
+lcp --proxyUrl https://www.yourdomain.ie --allowedOrigin http://localhost:3000 --includeCredentials
+```
+
+
 Alternatively you can install the package locally and add a script to your project:
 
 ```json
@@ -51,3 +64,5 @@ Alternatively you can install the package locally and add a script to your proje
 | --proxyUrl     | https://www.google.ie |         |
 | --proxyPartial | foo                   |   proxy |
 | --port         | 8010                  |    8010 |
+| --allowedOrigin | http://localhost:3000 |       * |
+| --includeCredentials | true            |    true |
