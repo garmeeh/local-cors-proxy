@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "main": "./lib/index.js",
   "scripts": {
+    "start": "node ./bin/lcp.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
@@ -14,7 +15,13 @@
     "type": "git",
     "url": "git+https://github.com/garmeeh/local-cors-proxy.git"
   },
-  "keywords": ["cors", "proxy", "simple", "node", "express"],
+  "keywords": [
+    "cors",
+    "proxy",
+    "simple",
+    "node",
+    "express"
+  ],
   "bugs": {
     "url": "https://github.com/garmeeh/local-cors-proxy/issues"
   },

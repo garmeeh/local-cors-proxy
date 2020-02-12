@@ -51,3 +51,5 @@ Alternatively you can install the package locally and add a script to your proje
 | --proxyUrl     | https://www.google.ie |         |
 | --proxyPartial | foo                   |   proxy |
 | --port         | 8010                  |    8010 |
+| --credentials  | (no value needed)     |   false |
+| --origin       | http://localhost:4200 |       * |
