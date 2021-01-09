@@ -12,7 +12,8 @@ var optionDefinitions = [
   },
   { name: 'proxyUrl', type: String },
   { name: 'credentials', type: Boolean, defaultValue: false },
-  { name: 'origin', type: String, defaultValue: '*' }
+  { name: 'origin', type: String, defaultValue: '*' },
+  { name: 'noFollowRedirect', type: Boolean, defaultValue: false }
 ];
 
 try {
@@ -20,7 +21,7 @@ try {
   if (!options.proxyUrl) {
     throw new Error('--proxyUrl is required');
   }
-  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin);
+  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin, options.noFollowRedirect);
 } catch (error) {
   console.error(error);
 }

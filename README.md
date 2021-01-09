@@ -46,10 +46,11 @@ Alternatively you can install the package locally and add a script to your proje
 
 ## Options
 
-| Option         | Example               | Default |
-| -------------- | --------------------- | ------: |
-| --proxyUrl     | https://www.google.ie |         |
-| --proxyPartial | foo                   |   proxy |
-| --port         | 8010                  |    8010 |
-| --credentials  | (no value needed)     |   false |
-| --origin       | http://localhost:4200 |       * |
+| Option             | Example               | Default |
+| ------------------ | --------------------- | ------: |
+| --proxyUrl         | https://www.google.ie |         |
+| --proxyPartial     | foo                   |   proxy |
+| --port             | 8010                  |    8010 |
+| --credentials      | (no value needed)     |   false |
+| --origin           | http://localhost:4200 |       * |
+| --noFollowRedirect | (no value needed)     |   false |
