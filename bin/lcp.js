@@ -5,6 +5,7 @@ var commandLineArgs = require('command-line-args');
 
 var optionDefinitions = [
   { name: 'port', alias: 'p', type: Number, defaultValue: 8010 },
+  { name: 'host', alias: 'h', type: String, defaultValue: "0.0.0.0" },
   {
     name: 'proxyPartial',
     type: String,
@@ -20,7 +21,7 @@ try {
   if (!options.proxyUrl) {
     throw new Error('--proxyUrl is required');
   }
-  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin);
+  lcp.startProxy(options.port, options.host, options.proxyUrl, options.proxyPartial, options.credentials, options.origin);
 } catch (error) {
   console.error(error);
 }
