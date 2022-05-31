@@ -10,17 +10,18 @@ var optionDefinitions = [
     type: String,
     defaultValue: '/proxy'
   },
-  { name: 'proxyUrl', type: String },
+  { name: 'proxyUrl', type: String, defaultValue: 'http://localhost:9000' },
   { name: 'credentials', type: Boolean, defaultValue: false },
-  { name: 'origin', type: String, defaultValue: '*' }
+  { name: 'origin', type: String, defaultValue: '*' },
+  { name: 'webhookStore', type: String }
 ];
 
 try {
   var options = commandLineArgs(optionDefinitions);
-  if (!options.proxyUrl) {
-    throw new Error('--proxyUrl is required');
+  if (!options.webhookStore) {
+    throw new Error('--webhookStore is required. example --webhookStore https://claimyourdomain.webhook.store');
   }
-  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin);
+  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin, options.webhookStore);
 } catch (error) {
   console.error(error);
 }
