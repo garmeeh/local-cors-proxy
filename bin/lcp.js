@@ -3,6 +3,7 @@
 var lcp = require("../lib/index.js");
 var commandLineArgs = require("command-line-args");
 var chalk = require("chalk");
+const prompt = require("prompt-sync")();
 
 var optionDefinitions = [
   { name: "proxyPort", alias: "p", type: Number, defaultValue: 8010 },
@@ -45,8 +46,11 @@ try {
     );
   } else {
     if (!options.webhookStore) {
-      throw new Error(
-        "--webhookStore is required. example --webhookStore https://claimyourdomain.webhook.store"
+      console.log(chalk.red("--webhookStore was not provided."));
+      const userName = prompt("Claim your subdomain (e.g. john): ") || "demo";
+      options.webhookStore = `https://${userName}.webhook.store`;
+      console.log(
+        chalk.red(`Next time run with '--webhookStore ${options.webhookStore}'`)
       );
     }
     if (!options.port) {
