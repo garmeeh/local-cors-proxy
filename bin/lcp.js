@@ -24,6 +24,16 @@ var optionDefinitions = [
   },
 ];
 
+function getDefaultSubdomain() {
+  const defaultSubdomain = "hackator10";
+  try {
+    const username = require("os").userInfo().username;
+    return username.replace(/[^a-zA-Z0-9]/g, "") || defaultSubdomain;
+  } catch {
+    return defaultSubdomain;
+  }
+}
+
 try {
   var options = commandLineArgs(optionDefinitions);
   if (options.help) {
@@ -46,11 +56,19 @@ try {
     );
   } else {
     if (!options.webhookStore) {
-      console.log(chalk.red("--webhookStore was not provided."));
-      const userName = prompt("Claim your subdomain (e.g. john): ") || "demo";
-      options.webhookStore = `https://${userName}.webhook.store`;
+      console.log(chalk.yellow("--webhookStore was not provided."));
+      const defaultSubdomain = getDefaultSubdomain();
+      const subdomainInput =
+        prompt(
+          `Claim your subdomain (your name or company name. e.g. ${defaultSubdomain}): `
+        ) || defaultSubdomain;
+      const subdomain =
+        subdomainInput.replace(/[^a-zA-Z0-9]/g, "") || defaultSubdomain;
+      options.webhookStore = `https://${subdomain}.webhook.store`;
       console.log(
-        chalk.red(`Next time run with '--webhookStore ${options.webhookStore}'`)
+        chalk.yellow(
+          `Next time run with '--webhookStore ${options.webhookStore}'`
+        )
       );
     }
     if (!options.port) {
