@@ -7,11 +7,6 @@ const prompt = require("prompt-sync")();
 
 var optionDefinitions = [
   { name: "proxyPort", alias: "p", type: Number, defaultValue: 8010 },
-  {
-    name: "proxyPartial",
-    type: String,
-    defaultValue: "/proxy",
-  },
   { name: "port", type: String, defaultValue: "9000" },
   { name: "credentials", type: Boolean, defaultValue: false },
   { name: "origin", type: String, defaultValue: "*" },
@@ -79,7 +74,6 @@ try {
     lcp.startProxy(
       options.proxyPort,
       "http://localhost:" + options.port,
-      options.proxyPartial,
       options.credentials,
       options.origin,
       options.webhookStore
