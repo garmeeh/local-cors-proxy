@@ -7,15 +7,11 @@ const prompt = require("prompt-sync")();
 
 var optionDefinitions = [
   { name: "proxyPort", alias: "p", type: Number, defaultValue: 8010 },
-  {
-    name: "proxyPartial",
-    type: String,
-    defaultValue: "/proxy",
-  },
-  { name: "port", type: String, defaultValue: "9000" },
+  { name: "port", type: String },
   { name: "credentials", type: Boolean, defaultValue: false },
   { name: "origin", type: String, defaultValue: "*" },
   { name: "webhookStore", type: String },
+  { name: "noOpen", type: Boolean, default: false },
   {
     name: "help",
     type: Boolean,
@@ -55,7 +51,7 @@ try {
       )
     );
   } else {
-    if (!options.webhookStore) {
+    if (!options.webhookStore && !options.noOpen) {
       console.log(chalk.yellow("--webhookStore was not provided."));
       const defaultSubdomain = getDefaultSubdomain();
       const subdomainInput =
@@ -75,14 +71,15 @@ try {
       console.log(
         chalk.yellow("--port option was not provided, using 9000 by default.")
       );
+      options.port = 9000;
     }
     lcp.startProxy(
       options.proxyPort,
       "http://localhost:" + options.port,
-      options.proxyPartial,
       options.credentials,
       options.origin,
-      options.webhookStore
+      options.webhookStore,
+      options.noOpen
     );
   }
 } catch (error) {
