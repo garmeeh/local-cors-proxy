@@ -11,6 +11,7 @@ var optionDefinitions = [
   { name: "credentials", type: Boolean, defaultValue: false },
   { name: "origin", type: String, defaultValue: "*" },
   { name: "webhookStore", type: String },
+  { name: "noOpen", type: Boolean, default: false },
   {
     name: "help",
     type: Boolean,
@@ -50,7 +51,7 @@ try {
       )
     );
   } else {
-    if (!options.webhookStore) {
+    if (!options.webhookStore && !options.noOpen) {
       console.log(chalk.yellow("--webhookStore was not provided."));
       const defaultSubdomain = getDefaultSubdomain();
       const subdomainInput =
@@ -76,7 +77,8 @@ try {
       "http://localhost:" + options.port,
       options.credentials,
       options.origin,
-      options.webhookStore
+      options.webhookStore,
+      options.noOpen
     );
   }
 } catch (error) {
