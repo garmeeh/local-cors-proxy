@@ -68,10 +68,12 @@ try {
       );
     }
     if (!options.port) {
-      console.log(
-        chalk.yellow("--port option was not provided, using 9000 by default.")
-      );
-      options.port = 9000;
+      console.log(chalk.yellow("--port option was not provided"));
+      const portInput =
+        prompt(
+          `Which port would you like to redirect webhooks on (default :9000): `
+        ) || 9000;
+      options.port = isNaN(portInput) ? 9000 : portInput;
     }
     lcp.startProxy(
       options.proxyPort,
