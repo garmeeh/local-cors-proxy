@@ -7,7 +7,7 @@ const prompt = require("prompt-sync")();
 
 var optionDefinitions = [
   { name: "proxyPort", alias: "p", type: Number, defaultValue: 8010 },
-  { name: "port", type: String, defaultValue: "9000" },
+  { name: "port", type: String },
   { name: "credentials", type: Boolean, defaultValue: false },
   { name: "origin", type: String, defaultValue: "*" },
   { name: "webhookStore", type: String },
@@ -71,6 +71,7 @@ try {
       console.log(
         chalk.yellow("--port option was not provided, using 9000 by default.")
       );
+      options.port = 9000;
     }
     lcp.startProxy(
       options.proxyPort,
