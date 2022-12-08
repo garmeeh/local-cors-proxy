@@ -30,7 +30,7 @@
     "chalk": "^2.3.2",
     "command-line-args": "^5.0.2",
     "cors": "^2.8.4",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "request": "^2.85.0"
   }
 }
