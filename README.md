@@ -11,7 +11,7 @@ No 'Access-Control-Allow-Origin' header is present on the requested resource. Or
 ## Getting Started
 
 ```
-npx webhook-store-cli
+npx webhook-store-cli@latest
 ```
 
 **Simple Example**
@@ -19,31 +19,31 @@ npx webhook-store-cli
 Start Proxy and open Webhook Store client in a tab:
 
 ```
-npx webhook-store-cli
+npx webhook-store-cli@latest
 ```
 
 Start Proxy and open a specific Webhook Store client:
 
 ```
-npx webhook-store-cli --webhookStore https://lol.webhook.store/
+npx webhook-store-cli@latest --webhookStore https://lol.webhook.store/
 ```
 
 Start Proxy without opening a tab:
 
 ```
-npx webhook-store-cli --noOpen
+npx webhook-store-cli@latest --noOpen
 ```
 
 Start Proxy to target port 9000:
 
 ```
-npx webhook-store-cli --port 9000
+npx webhook-store-cli@latest --port 9000
 ```
 
 Start Proxy to target specific port, hostname and protocol:
 
 ```
-npx webhook-store-cli --protocol https --hostname dev.localenv --port 9000
+npx webhook-store-cli@latest --protocol https --hostname dev.localenv --port 9000
 ```
 
 ## Options
