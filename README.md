@@ -1,4 +1,4 @@
-# Local CORS Proxy
+# Local CORS Proxy + Webhook Store
 
 Simple proxy to bypass CORS issues. This was built as a local dev only solution to enable prototyping against existing APIs without having to worry about CORS.
 
@@ -11,45 +11,47 @@ No 'Access-Control-Allow-Origin' header is present on the requested resource. Or
 ## Getting Started
 
 ```
-npm install -g local-cors-proxy
+npx webhook-store-cli@latest
 ```
 
 **Simple Example**
 
-API endpoint that we want to request that has CORS issues:
+Start Proxy and open Webhook Store client in a tab:
 
 ```
-https://www.yourdomain.ie/movies/list
+npx webhook-store-cli@latest
 ```
 
-Start Proxy:
+Start Proxy and open a specific Webhook Store client:
 
 ```
-lcp --proxyUrl https://www.yourdomain.ie
+npx webhook-store-cli@latest --webhookStore https://lol.webhook.store/
 ```
 
-Then in your client code, new API endpoint:
+Start Proxy without opening a tab:
 
 ```
-http://localhost:8010/proxy/movies/list
+npx webhook-store-cli@latest --noOpen
 ```
 
-End result will be a request to `https://www.yourdomain.ie/movies/list` without the CORS issues!
+Start Proxy to target port 9000:
 
-Alternatively you can install the package locally and add a script to your project:
+```
+npx webhook-store-cli@latest --port 9000
+```
 
-```json
- "scripts": {
-   "proxy": "lcp --proxyUrl https://www.yourdomain.ie"
- }
+Start Proxy to target specific port, hostname and protocol:
+
+```
+npx webhook-store-cli@latest --protocol https --hostname dev.localenv --port 9000
 ```
 
 ## Options
 
-| Option         | Example               | Default |
-| -------------- | --------------------- | ------: |
-| --proxyUrl     | https://www.google.ie |         |
-| --proxyPartial | foo                   |   proxy |
-| --port         | 8010                  |    8010 |
-| --credentials  | (no value needed)     |   false |
-| --origin       | http://localhost:4200 |       * |
+| Option         | Example                   |   Default |
+| -------------- | ------------------------- | --------: |
+| --webhookStore | https://lol.webhook.store |           |
+| --noOpen       | (no value needed)         |           |
+| --port         | 9000                      |      9000 |
+| --protocol     | https                     |      http |
+| --hostname     | dev.localenv              | localhost |

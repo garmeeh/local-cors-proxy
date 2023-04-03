@@ -1,6 +1,6 @@
 {
-  "name": "local-cors-proxy",
-  "version": "1.1.0",
+  "name": "webhook-store-cli",
+  "version": "1.1.5",
   "main": "./lib/index.js",
   "scripts": {
     "start": "node ./bin/lcp.js",
@@ -9,28 +9,29 @@
   "bin": {
     "lcp": "./bin/lcp.js"
   },
-  "author": "Gary Meehan",
+  "author": "Sammy Teillet",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/garmeeh/local-cors-proxy.git"
+    "url": "git+https://github.com/OpenWebhook/webhook-store-cli.git"
   },
   "keywords": [
-    "cors",
-    "proxy",
     "simple",
-    "node",
-    "express"
+    "webhook",
+    "webhook-store",
+    "dev-tool"
   ],
   "bugs": {
-    "url": "https://github.com/garmeeh/local-cors-proxy/issues"
+    "url": "https://github.com/OpenWebhook/webhook-store-cli/issues"
   },
-  "homepage": "https://github.com/garmeeh/local-cors-proxy#readme",
+  "homepage": "https://github.com/OpenWebhook/webhook-store-cli#readme",
   "dependencies": {
     "chalk": "^2.3.2",
     "command-line-args": "^5.0.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "open": "^8.4.0",
+    "prompt-sync": "^4.2.0",
     "request": "^2.85.0"
   }
 }
