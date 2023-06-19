@@ -53,3 +53,4 @@ Alternatively you can install the package locally and add a script to your proje
 | --port         | 8010                  |    8010 |
 | --credentials  | (no value needed)     |   false |
 | --origin       | http://localhost:4200 |       * |
+| --exposedHeaders | [Content-Disposition,Date] or [*] | null |
