@@ -4,6 +4,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "node ./bin/lcp.js",
+    "test1": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 node ./bin/lcp.js --proxyUrl https://dev.developers.amadeus.com/ --credentials --origin [http://localhost:4200,http://localhost:4201,http://localhost:4202,http://localhost:4203]",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "bin": {
@@ -32,5 +33,8 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
