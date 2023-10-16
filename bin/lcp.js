@@ -12,7 +12,10 @@ var optionDefinitions = [
   },
   { name: 'proxyUrl', type: String },
   { name: 'credentials', type: Boolean, defaultValue: false },
-  { name: 'origin', type: String, defaultValue: '*' }
+  { name: 'origin', type: String, defaultValue: '*' },
+  { name: 'key', alias: 'k', type: String, defaultValue: '' },
+  { name: 'cert', alias: 'c', type: String, defaultValue: '' },
+  { name: 'passphrase', type: String, defaultValue: undefined },
 ];
 
 try {
@@ -20,7 +23,7 @@ try {
   if (!options.proxyUrl) {
     throw new Error('--proxyUrl is required');
   }
-  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin);
+  lcp.startProxy(options.port, options.proxyUrl, options.proxyPartial, options.credentials, options.origin, options.key, options.cert, options.passphrase);
 } catch (error) {
   console.error(error);
 }
